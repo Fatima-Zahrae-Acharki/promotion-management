@@ -22,6 +22,13 @@
                 return $result;
             }
         }
+
+        public function editData(){
+            
+        }
+
+
+
         }
        
 
