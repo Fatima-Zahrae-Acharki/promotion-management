@@ -24,19 +24,19 @@ if(!empty ($_POST)){
 </head>
 <body>
 	<header>
-		<h1>ADD PROMOTION</h1>
+		<h1 class="text-center">ADD PROMOTION</h1>
 	</header>
 <form action="" method="POST">
 Name of the promotion: <input type="text" name="name" >                                                          
    
-<button type="submit">SUBMIT</button>
+<button type="submit" class="btn btn-info"  >SUBMIT</button>
 </form>
-<h3>PROMOTIONS</h3>
-<table class="table table-bordered"> 
-        <tr class="bg-warning text-centre">
-        <th>PROMOTION</th>
-        <th>edit</th>
-        <th>delete</th>
+<h3 class="text-center">PROMOTIONS</h3>
+<table class="table table-bordered "> 
+        <tr class="bg-info text-light text-centre">
+        <th class="text-center">PROMOTION</th>
+        <th class="text-center">edit</th>
+        <th class="text-center">delete</th>
     </tr>
     <?php
     $data = $promotionDAL->displayData();
@@ -48,10 +48,11 @@ Name of the promotion: <input type="text" name="name" >
     <?php
     foreach($data as $value){
             echo'
-    <tr>
+    <tr class="text-center">
         
         <td>'.$value["NAME"].'</td>
-        <td><button type="submit" class="btn btn-success" >EDIT</button></td>
+        
+        <td><button type="submit" class="btn btn-success" ><a href="edit.php?id=<?php .$value["NAME"]; ?>Edit</a></button></td>
         <td><button type="submit" class="btn btn-danger" >DELETE</button></td>
         
     </tr>';
