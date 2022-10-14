@@ -50,9 +50,9 @@ Name of the promotion: <input type="text" name="name" >
             echo'
     <tr class="text-center">
         
-        <td>'.$value["NAME"].'</td>
+        <td>'.$value["name"].'</td>
         
-        <td><button type="submit" class="btn btn-success" ><a href="edit.php?id=<?php .$value["NAME"]; ?>Edit</a></button></td>
+        <td><button type="submit" class="btn btn-success" ><a href="edit.php?editid=<?php .$value["id"]; ?>Edit</a></button></td>
         <td><button type="submit" class="btn btn-danger" >DELETE</button></td>
         
     </tr>';

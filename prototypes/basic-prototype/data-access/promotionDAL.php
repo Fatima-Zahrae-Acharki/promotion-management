@@ -8,7 +8,7 @@
                 $name = $promotion->getName();
             
 
-            $insertRow = "INSERT INTO promo (NAME) VALUES ('$name')";
+            $insertRow = "INSERT INTO promo (name) VALUES ('$name')";
 
             mysqli_query ($this->connect(),$insertRow);
         }
@@ -24,52 +24,39 @@
         }
 
 
-
-
-
-        
-
-
-        public function selectAllPromo(){
-            $select = "SELECT * FROM promo";
-            return mysqli_query($this->Connect(), $select);
+        public function  EditID($id){
+            $sql = "SELECT * FROM promo WHERE id = $id";
+            $result = mysqli_query($this->connect(), $sql);
+            if($result->num_rows==1){
+           
+            return $result;
         }
-    
-        public function getPromotionById($promotion){
-            $sqlGetData = "SELECT * FROM promo WHERE ID = ". $promotion->getId();
-            return mysqli_query($this->Connect(), $sqlGetData);
+
+
+       
+}
+
+
+         public function editName($id, $name){
+
+                $edt = "UPDATE promotion set name = '$name' WHERE id = $id";
+                $dltN = mysqli_query($this->connect(), $edt);
+
         }
-    
 
 
 
+		// public function updatePromotion($data){
 
+		// 	$query = "UPDATE records SET name='$data[name]' WHERE id='$data[id] '";
 
-
-        public function editRecord($id){
-
-			$data = null;
-
-			$query = "SELECT * FROM promo WHERE ID = '$id'";
-			if ($sql = $this->conn->query($query)) {
-				while($row = $sql->fetch_assoc()){
-					$data = $row;
-				}
-			}
-			return $data;
-		}
-
-		public function updatePromotion($data){
-
-			$query = "UPDATE records SET NAME='$data[name]' WHERE ID='$data[id] '";
-
-			if ($sql = $this->conn->query($query)) {
-				return true;
-			}else{
-				return false;
-			}
-            header('location: ../presentation/add-promotion.php');
-		}
+		// 	if ($sql = $this->conn->query($query)) {
+		// 		return true;
+		// 	}else{
+		// 		return false;
+		// 	}
+        //     header('location: ../presentation/add-promotion.php');
+		// }
 
 
 

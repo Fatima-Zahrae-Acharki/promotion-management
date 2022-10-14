@@ -2,17 +2,16 @@
 <?php 
 require_once '../data-access/promotionDAL.php';
 require_once '../data-access/promotion.php';
+require_once '../data-access/connection.php';
 
 $promotionDAL = new PromotionDAL();
 
-    if(isset($_POST["submit"])){
-        $newPromo = new Promotion();
-        $newPromo->setName($_POST['NAME']);
-        $newPromo->setId($_GET['ID']);
-		$promotionDAL->updatePromotion($newPromo);
-
+    if(isset($_GET["editid"])){
+      $editid = $_GET['editid'];
+      $content = $promotionDAL->EditID($editid);
     }
 
+    print_r($content);
 
 ?>
 
@@ -32,7 +31,9 @@ $promotionDAL = new PromotionDAL();
 		<h1 >EDIT PROMOTION</h1>
 	</header>
 <form action="" method="POST">
-Name of the promotion: <input type="text" name="name" >                                                          
+Name of the promotion:
+ <input type="text" name="name" value=" <?php echo $content['name']; ?>" >  
+
    
 <button type="submit">UPDATE</button>
 </form>
@@ -41,3 +42,9 @@ Name of the promotion: <input type="text" name="name" >
 
 </body>
 </html>
+<?php
+if(isset($_POST['update'])){
+  $promotionDAL->updatePromotion($_POST);
+}
+
+?>
