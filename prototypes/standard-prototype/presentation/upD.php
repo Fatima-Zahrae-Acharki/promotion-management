@@ -33,7 +33,7 @@ if(isset($_POST['update'])){
 </head>
 <body>
 <h3 class="text-center text-info">Edit a promotion</h3>
-<form action="" method="post" class="text-center">
+<form action="" method="post" class="text-center text-danger">
     <input type="hidden" value="" name="id"><br><br>
     <input type="text" name="name" value="<?php echo $value['name'] ?>">
     <br><br>
