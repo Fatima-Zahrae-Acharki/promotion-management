@@ -16,8 +16,3 @@ if(isset($_GET["idEdit"])){
     }
 
 }
-
-
-
-
-?>
